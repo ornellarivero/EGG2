@@ -20,15 +20,15 @@ public class MatematicaService {
     public Matematica crear() {
         Matematica mat = new Matematica();
         System.out.print("Ingrese num 1, puede ser decimal: ");
-        mat.setNum1(leer.nextFloat());
+        mat.setNum1((float)(Math.random()*11));
         System.out.print("Ingrese num 2, puede ser decimal: ");
-        mat.setNum2(leer.nextFloat());
+        mat.setNum2((float)(Math.random()*11));
         return mat;
     }
 
     public void devolverMayor(Matematica mat) {
         System.out.println("Num 1= " + mat.getNum1() + " // " + "Num 2= " + mat.getNum2());
-        float mayor = Float.max(mat.getNum1(), mat.getNum2());
+        float mayor = Math.max(mat.getNum1(), mat.getNum2());
         System.out.println("El mayor es: " + mayor);
     }
 
@@ -39,8 +39,8 @@ public class MatematicaService {
         float redondearNum2 = Math.round(mat.getNum2());
         System.out.println("Num 2 redondeado: " + redondearNum2);
         
-        float mayor = Float.max(redondearNum2, redondearNum1);
-        float menor = Float.min(redondearNum2, redondearNum1);
+        float mayor = Math.max(redondearNum2, redondearNum1);
+        float menor = Math.min(redondearNum2, redondearNum1);
         double potencia = Math.pow(mayor, menor);
         System.out.println(mayor + " elevado al " + menor + " = " + potencia);
     }
