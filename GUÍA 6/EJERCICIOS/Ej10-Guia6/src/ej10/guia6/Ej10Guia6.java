@@ -9,16 +9,33 @@ ordenados al arreglo B de 20 elementos, y rellenar los 10 últimos elementos con
 */
 package ej10.guia6;
 
-import java.lang.reflect.Array;
-import java.util.Random;
+import entidad.Arreglo;
+import java.util.Arrays;
+import java.util.Scanner;
+import services.ArreglosServices;
 
 public class Ej10Guia6 {
 
     public static void main(String[] args) {
-        Random random=new Random();
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
         
-        Array a[] = new Array[50];
-        Array b[] = new Array[20];
+        ArreglosServices s = new ArreglosServices();
+        //VECTOR A
+        System.out.print("Dimensión VECTOR A: ");
+        int dimensionA=leer.nextInt();
+        Arreglo a=s.crearArreglo(dimensionA);
+        s.rellenar(a, dimensionA);
+        System.out.println("");
+        
+        //VECTOR B
+        System.out.print("Dimensión VECTOR B: ");
+        int dimensionB=leer.nextInt();
+        Arreglo b=s.crearArreglo(dimensionB);
+        s.rellenar(b, dimensionB);
+        //ORDENAR VECTOR A
+         s.ordenAscendente(a);
+         //RELLENAR VECTOR B
+         s.rellenarVectorB(a, b, dimensionB);
         
         
         
