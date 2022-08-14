@@ -38,8 +38,6 @@ public class Ej12_Guia6 {
         System.out.println("");
 
         s.mostrarPersona(p1);
-        System.out.println("");
-        
         s.mostrarPersona(p2);
 
     }
