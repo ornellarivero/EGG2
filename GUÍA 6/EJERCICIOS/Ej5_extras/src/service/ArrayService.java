@@ -12,29 +12,27 @@ import entidad.Array;
 import java.util.Scanner;
 
 public class ArrayService {
-
+    
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
-
+    
     public void adivinarMes() {
-        String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
+        Array meses = new Array();
         System.out.println("ADIVINE EL MES. Tiene 3 intentos.");
         System.out.print("Mes?: ");
-        String mes = leer.next().toLowerCase();
+        String m = leer.next().toLowerCase();
         int meSecreto = (int) (Math.random() * 11);
-        int cont = 3;
-        while (!meses[meSecreto].equals(mes) & cont > 1) {
+        int cont = 2;
+        while (!meses.getMes()[meSecreto].equals(m) & cont > 0) {
             cont = cont - 1;
-            System.out.println("No adivinó. Tiene " + cont + " intentos más...");
+            System.out.println("No adivinó. Tiene " + (cont+1) + " intentos más...");
             System.out.print("Mes?: ");
-            mes = leer.next().toLowerCase();
+            m = leer.next().toLowerCase();
         }
-        if (cont!=1) {
-            System.out.println("Adivinó, el mes es " + meses[meSecreto].toUpperCase());
-        }else{
-            System.out.println("No adivinó. El mes era " + meses[meSecreto].toUpperCase());
+        if (cont == 0 & !meses.getMes()[meSecreto].equals(m)) {
+            System.out.println("No adivinó. El mes era " + meses.getMes()[meSecreto].toUpperCase());
+        } else {
+            System.out.println("Adivinó, el mes es " + meses.getMes()[meSecreto].toUpperCase());
         }
-      }
+    }
     
-    
-
 }
