@@ -5,8 +5,9 @@ palabra en un índice del vector. Y también, guarda en cantidad de jugadas máx
 valor que ingresó el usuario y encontradas en 0.
 • Método longitud(): muestra la longitud de la palabra que se debe encontrar. Nota: 
 buscar como se usa el vector.length.
-• Método buscar(letra): este método recibe una letra dada por el usuario y busca sila 
+• Método buscar(letra): este método recibe una letra dada por el usuario y busca si la 
 letra ingresada es parte de la palabra o no. También informará si la letra estaba o no.
+/////////////////////////////////////////////////////////////////////////////////////
 • Método encontradas(letra): que reciba una letra ingresada por el usuario y muestre 
 cuantas letras han sido encontradas y cuantas le faltan. Este método además deberá 
 devolver true si la letra estaba y false si la letra no estaba, ya que, cada vez que se 
@@ -33,14 +34,42 @@ public class AhorcadoService {
 
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
-    public void crearJuego(Ahorcado a) {
-        System.out.println("Palabra para adivinar:");
+    public Ahorcado crearJuego() {
+        Ahorcado a = new Ahorcado();
+        System.out.println("Palabra: ");
         String palabra = leer.next();
-//        String[] vector=new String[palabra.length()];
-        String[] letra = palabra.split("");
-        System.out.println("Letras: " + letra.length);
-        for (int i = 0; i < letra.length; i++) {
-            a.setLetra(letra[i], i);
+        String[] splt = palabra.split("");
+        String[] letra = new String[splt.length];
+        for (int i = 0; i < splt.length; i++) {
+            letra[i] = splt[i];
+        }
+        a.setPalabra(letra);
+
+        System.out.println("Cantidad de jugadas:");
+        a.setCantJugadas(leer.nextInt());
+        a.setCantLetrasEncontradas(0);
+        return a;
+    }
+
+    public void longitud(Ahorcado a) {
+        System.out.println("Longitud de la palabra: " + a.getPalabra().length);
+    }
+
+    public void buscar(Ahorcado a) {
+        System.out.print("Ingrese una letra: ");
+        String letra = leer.next();
+        int cont = 0;
+        int jugadas = a.getCantJugadas();
+        for (int i = 0; i < a.getPalabra().length; i++) {
+            if (a.getPalabra()[i].equalsIgnoreCase(letra)) {
+                a.setCantLetrasEncontradas(cont + 1);
+                System.out.println("Posición letra " + "'" + letra + "'" + ": " + (i + 1) + ", ");
+            }
+        }
+        if (a.getCantLetrasEncontradas() == 0) {
+            System.out.println("La letra " + "'" + letra + "'" + " no está.");
+            a.setCantJugadas(jugadas - 1);
         }
     }
+
 }

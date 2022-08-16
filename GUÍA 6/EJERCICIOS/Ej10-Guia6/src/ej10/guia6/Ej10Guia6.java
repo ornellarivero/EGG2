@@ -10,7 +10,6 @@ ordenados al arreglo B de 20 elementos, y rellenar los 10 últimos elementos con
 package ej10.guia6;
 
 import entidad.Arreglo;
-import java.util.Arrays;
 import java.util.Scanner;
 import services.ArreglosServices;
 

@@ -5,6 +5,8 @@ parámetros que sean necesarios:
 • Constructores, tanto el vacío como el parametrizado.*/
 package entidad;
 
+import java.util.Arrays;
+
 
 public class Ahorcado {
 private String[] palabra;
@@ -23,14 +25,11 @@ private int cantJugadas;
     public String[] getPalabra() {
         return palabra;
     }
-
+    
     public void setPalabra(String[] palabra) {
         this.palabra = palabra;
     }
-    public void setLetra(String letra, int i) {
-        this.palabra[i]=letra;
-    }
-
+     
     public int getCantLetrasEncontradas() {
         return cantLetrasEncontradas;
     }
@@ -49,6 +48,6 @@ private int cantJugadas;
 
     @Override
     public String toString() {
-        return "Ahorcado{" + "palabra=" + palabra + ", cantLetrasEncontradas=" + cantLetrasEncontradas + ", cantJugadas=" + cantJugadas + '}';
+        return "Ahorcado{" + "palabra=" + Arrays.toString(palabra) + ", cantLetrasEncontradas=" + cantLetrasEncontradas + ", cantJugadas=" + cantJugadas + '}';
     }
 }

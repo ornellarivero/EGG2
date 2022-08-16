@@ -10,7 +10,6 @@ ordenados al arreglo B de 20 elementos, y rellenar los 10 últimos elementos con
 package services;
 
 import entidad.Arreglo;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -18,7 +17,7 @@ public class ArreglosServices {
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
     
     public Arreglo crearArreglo(int dimension){
-        System.out.print("Dimensión: ");
+        System.out.print("Dimensión: "+dimension);
         Arreglo a = new Arreglo(dimension);
         return a;
     } 
