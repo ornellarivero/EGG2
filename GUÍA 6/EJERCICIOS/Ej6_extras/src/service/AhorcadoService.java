@@ -52,64 +52,58 @@ public class AhorcadoService {
         System.out.println("Longitud de la palabra: " + a.getPalabra().length);
     }
 
-    public void buscar(Ahorcado a, String letra) {
-        int cont = 0;
+    public boolean buscar(Ahorcado a, String letra) {
+        boolean esta = false;
         for (int i = 0; i < a.getPalabra().length; i++) {
             if (a.getPalabra()[i].equals(letra)) {
-                cont++;
+                a.setCantLetrasEncontradas(a.getCantLetrasEncontradas() + 1);
+                esta = true;
             }
         }
-        if (cont == 0) {
+
+        if (!esta) {
             System.out.println("La letra " + "'" + letra.toUpperCase() + "'" + " no está.");
             a.setCantJugadas(a.getCantJugadas() - 1);
         } else {
             System.out.println("La letra " + "'" + letra.toUpperCase() + "'" + " forma parte de la palabra.");
         }
+        System.out.println("Faltan encontrar " + (a.getPalabra().length - a.getCantLetrasEncontradas()) + " letra/s.");
+        return esta;
     }
 
-    public boolean encontradas(Ahorcado a, String letra) {
-        int cont = 0;
-        boolean letraEsta = true;
-        for (int i = 0; i < a.getPalabra().length; i++) {
-            if (a.getPalabra()[i].equals(letra)) {
-                cont++;
-            }
-        }
-        a.setCantLetrasEncontradas(a.getCantLetrasEncontradas() + cont);
-
-        if (cont > 0) {
-            System.out.println("La letra " + letra.toUpperCase() + " está " + a.getCantLetrasEncontradas() + " vez/ces.");
-            System.out.println("Faltan encontrar " + (a.getPalabra().length - a.getCantLetrasEncontradas()) + " letra/s.");
-            System.out.print("Estado: ");
-            return letraEsta;
-        } else {
-            System.out.print("Estado: ");
-            return !letraEsta;
-        }
-    }
-
-    public int intentos(Ahorcado a) {
+    public void intentos(Ahorcado a) {
         System.out.println("Quedan " + a.getCantJugadas() + " jugadas.");
-        return a.getCantJugadas();
     }
 
-    public void juego(Ahorcado a, String letra) {
+    public void juego() {
+        Ahorcado a = crearJuego();
+        String letra;
+        boolean usada;
         longitud(a);
-        buscar(a, letra);
-        while ((intentos(a) > 0) || (a.getCantLetrasEncontradas() == a.getPalabra().length)) {
-            System.out.println("(buscar)");
-            buscar(a, letra);
-            System.out.println("(encontradas)");
-            encontradas(a, letra);
-            intentos(a);
-            System.out.println("(Ingrese otra letra)");
+        String[] letrasUsadas = new String[27];
+        int cont = 0;
+        do {
+            usada = false;
+            System.out.print("Ingrese letra: ");
             letra = leer.next();
-        }
+
+            for (int i = 0; i < letrasUsadas.length; i++) {
+                if (letra.equals(letrasUsadas[i])) {
+                    usada = true;
+                }
+            }
+            if (!usada) {
+                buscar(a, letra);
+                letrasUsadas[cont] = letra;
+                cont++;
+                longitud(a);
+                intentos(a);
+            }else{
+                System.out.println("La letra "+letra+ " ya se usó.");
+            }
+
+            System.out.println("............................");
+        } while (((a.getCantJugadas()) > 0 && (a.getCantLetrasEncontradas() != a.getPalabra().length)));
     }
 
-    
-    
-    
-    
-    
 }

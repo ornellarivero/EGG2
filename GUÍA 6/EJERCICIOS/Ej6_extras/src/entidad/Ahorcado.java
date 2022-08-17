@@ -10,8 +10,7 @@ import java.util.Arrays;
 
 public class Ahorcado {
 private String[] palabra;
-private int cantLetrasEncontradas;
-private int cantJugadas;
+private int cantLetrasEncontradas, cantJugadas;
 
     public Ahorcado() {
     }
