@@ -15,17 +15,19 @@ public class Ej6_extras {
 //        System.out.println(a.getPalabra().toString());
 //        System.out.println("-----------------");
         
-        s.longitud(a);
-        System.out.println("");
-        
+//        s.longitud(a);
+//        System.out.println("");
+//        
         System.out.print("Ingrese letra: ");
         String letra=leer.next();
-        System.out.println("");
-        
-        s.buscar(a, letra);
-        System.out.println("");
-        
-        System.out.println(s.encontradas(a, letra));
+//        System.out.println("");
+//        
+//        s.buscar(a, letra);
+//        System.out.println("");
+//        
+//        System.out.println(s.encontradas(a, letra));
+
+        s.juego(a, letra);
 
     }
 
