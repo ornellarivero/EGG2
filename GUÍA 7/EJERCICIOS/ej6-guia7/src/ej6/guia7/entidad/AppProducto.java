@@ -21,7 +21,6 @@ private HashMap<String, Integer>listaProductos=new HashMap();
     public void setProd(String producto) {
         this.producto = producto;
     }
-
     public int getPrecio() {
         return precio;
     }
