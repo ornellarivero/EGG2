@@ -11,9 +11,10 @@
 Algoritmo extr11_rellenar_matriz_unos_ceros
 	Definir matriz, f, c Como Entero
 	Dimension matriz[5, 15]
-	para f<-0 Hasta 4
+	
+	Para f<-0 Hasta 4
 		Para c<-0 Hasta 14
-			si (f==0 o c==0) o (f==4 o c==14)
+			Si (f==0 o c==0) o (f==4 o c==14)
 				Escribir Sin Saltar "1"
 			SiNo
 				Escribir Sin Saltar "0"
