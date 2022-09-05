@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="entidad">
+  <ClassDiagramComponents>
+    <Class name="Aaa" package="entidad" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="claseB" type="Bbb" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Bbb" name="claseB"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getClaseB" returnType="Bbb" visibility="public"/>
+        <Method name="setClaseB" returnType="void" visibility="public">
+          <Argument type="Bbb" name="claseB"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Bbb" package="entidad" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="claseA" type="Aaa" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Aaa" name="claseA"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getClaseA" returnType="Aaa" visibility="public"/>
+        <Method name="setClaseA" returnType="void" visibility="public">
+          <Argument type="Aaa" name="claseA"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="claseB" source="entidad.Aaa" target="entidad.Bbb" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="entidad.Bbb" target="entidad.Aaa" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="entidad.Aaa" target="entidad.Bbb" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="claseA" source="entidad.Bbb" target="entidad.Aaa" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
