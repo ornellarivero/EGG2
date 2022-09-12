@@ -16,15 +16,20 @@ public class LoroService implements LoroInterface {
 
     @Override
     public void hablar() {
-        System.out.println("A Pomelo le encanta hablar con la gente.");
+        System.out.println("-A Pomelo le encanta hablar con la gente.");
         
     }
 
     @Override
     public boolean baila() {
         boolean baila=true;
-        System.out.println("Poemlo grita?: "+baila);
+        System.out.println("-Poemlo grita?: "+baila);
         return baila;
+    }
+
+    @Override
+    public void cantiSemillas() {
+        System.out.println("-Pomelo come "+ CANTSEMILLAS+" semillas por día.");
     }
     
 }

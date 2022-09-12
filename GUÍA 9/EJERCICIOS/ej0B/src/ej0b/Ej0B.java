@@ -12,8 +12,10 @@ public class Ej0B {
         System.out.println(ps.crearPerro().toString());
         ps.juega();
         ps.ladra();
+        System.out.println(ps.comeEnElDia());
         System.out.println(ls.crearLoro().toString());
         ls.baila();
         ls.hablar();
+        ls.cantiSemillas();
     }
 }

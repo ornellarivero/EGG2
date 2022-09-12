@@ -16,14 +16,19 @@ public class PerroService implements PerroInterface{
 
     @Override
     public void juega() {
-        System.out.println("A Luna le gusta correr.");
+        System.out.println("-A Luna le gusta correr.");
     }
 
     @Override
     public boolean ladra() {
         boolean ladra=true;
-        System.out.println("Luna ladra?: "+ladra);
+        System.out.println("-Luna ladra?: "+ladra);
         return ladra;
+    }
+
+    @Override
+    public String comeEnElDia() {
+        return "-Luna come " + COME + " veces en el día.";
     }
     
 }
