@@ -17,6 +17,7 @@ public class CaballoService extends Caballo{
         c.setEdad(leer.nextInt());
         System.out.print("Raza: ");
         c.setRaza(leer.next());
+        
         return c;
     }
     
