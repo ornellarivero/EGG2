@@ -7,6 +7,7 @@ CREATE TABLE creador (
   nombre VARCHAR(20) NOT NULL
 );
 
+
 CREATE TABLE personaje (
   id_personaje INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   nombre_real VARCHAR(20) NOT NULL,
@@ -20,7 +21,4 @@ CREATE TABLE personaje (
   id_creador INT UNSIGNED NOT NULL,
   FOREIGN KEY (id_creador) REFERENCES creador(id_creador)
 );
-
-INSERT INTO creador VALUES(1,'Marvel'); 
-INSERT INTO creador VALUES(2,'DC Comics'); 
 

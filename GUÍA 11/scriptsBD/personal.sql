@@ -68,26 +68,3 @@ INSERT INTO `empleado` VALUES (338,'Abel Gómez','M','1939-12-24','2000-10-01',1
 INSERT INTO `empleado` VALUES (689,'Mario Llano','M','1945-08-30','1990-05-16',2250000,2500000,'Vendedor','31.178.144',2300);
 INSERT INTO `empleado` VALUES (785,'Joaquín Rosas','M','1947-07-07','1990-05-16',2250000,2500000,'Vendedor','31.178.144',2200);
 INSERT INTO `empleado` VALUES (898,'Iván Duarte','M','1955-08-12','1998-05-16',1050000,200000,'Mecánico','333.333.333',4100);
-
-select * from empleado;
-select * from departamento;
-select nombre_depto from departamento;
-select salario,nombre from empleado;
-select distinct comision from empleado;
-select * from empleado where cargo='secretaria';
-select * from empleado where cargo='vendedor' order by nombre;
-select nombre, cargo from empleado order by salario;
-select nombre as n, cargo as c from empleado order by salario;
-select salario,comision from empleado where id_depto = 2000 order by comision;
-select nombre,(salario+comision+500)as 'aguinaldo' from empleado where id_depto=3000 order by nombre;
-select nombre from empleado where nombre like 'J%';
-select salario, comision, (salario+comision)as 'salario total' from empleado where comision> 1000;
-select salario, comision, (salario+comision)as 'salario total' from empleado where comision = 0;
-select * from empleado where comision > salario;
-select * from empleado where comision <= (salario*0.3);
-select * from empleado where nombre not like '%ma%';
-select distinct nombre_depto from departamento where nombre_depto in('ventas','investigacion','mantenimiento');
-select distinct nombre_depto from departamento where nombre_depto not in('ventas','investigacion','mantenimiento');
-select max(salario) from empleado;
-
-
