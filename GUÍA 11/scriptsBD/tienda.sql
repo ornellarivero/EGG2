@@ -36,3 +36,30 @@ INSERT INTO producto VALUES(8, 'Portátil Yoga 520', 559, 2);
 INSERT INTO producto VALUES(9, 'Portátil Ideapd 320', 444, 2);
 INSERT INTO producto VALUES(10, 'Impresora HP Deskjet 3720', 59.99, 3);
 INSERT INTO producto VALUES(11, 'Impresora HP Laserjet Pro M26nw', 180, 3);
+
+SELECT nombre, precio FROM producto
+WHERE nombre LIKE '%portatil%';
+
+
+
+SELECT * FROM producto;
+ORDER BY precio ASC
+LIMIT 1;
+
+
+UPDATE producto SET
+nombre='Pomelo',
+precio=50000.40
+WHERE codigo=2;
+
+SELECT * FROM fabricante;
+
+UPDATE fabricante SET
+nombre='Pomelo'
+WHERE codigo=2;
+
+DELETE FROM fabricante
+WHERE codigo=2;
+ 
+
+

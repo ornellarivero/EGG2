@@ -1,0 +1,4 @@
+Por último, vamos a crear un formulario para registrar un usuario .
+Es importante que en las casillas de sexo del usuario se puede clickear la/s palabra/s 
+hombre, mujer o prefiero no decir para seleccionar la opción. Recordemos que eso lo 
+podemos hacer con la etiqueta label.

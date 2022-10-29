@@ -1,0 +1,15 @@
+a:link{
+    color: #CC0000;
+    text-decoration: none;
+}
+
+a:hover{
+    background-color: #CC0000;
+    color: white;
+    text-decoration: none;
+}
+
+a:visited{
+    color: #CCC;
+    text-decoration: none;
+}

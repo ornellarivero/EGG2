@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EjA-6</title>
+</head>
+
+<body>
+    <br>
+    <hr>
+    <form align="center" action="pagina@mail.com" method="POST" enctype="multipart/form-data">
+        <label for="nombre">Nombre del usuario</label>
+        <br>
+        <input type="text" id="nombre" placeholder="Pomelo el Loro">
+        <br>
+        <br>
+        <label for="pass">Contraseña del usuario</label>
+        <br>
+        <input type="password" id="pass">
+        <br>
+        <br>
+        <label for="fecha">Fecha de nacimiento del usuario</label>
+        <br>
+        <input type="date" id="fecha">
+        <br>
+        <br>
+        <label for="genero">Sexo del usuario</label>
+        <br>
+        <input type="radio" id="genero" name="sexo" value="1">F
+        <input type="radio" id="genero" name="sexo" value="2">M
+        <input type="radio" id="genero" name="sexo" value="3">O
+        <br>
+        <br>
+        <label for="fecha">País de nacimiento del usuario</label>
+        <br>
+        <select name="pais" id="pais">
+            <option value="Arg">Argentina</option>
+            <option value="Bra">Brasil</option>
+            <option value="Chi">Chile</option>
+        </select>
+        <br>
+        <br>
+        <hr>
+        <button type="submit">Enviar</button>
+        <button style="margin-left: 30px;" type="reset">Borrar</button>
+    </form>
+</body>
+
+</html>
