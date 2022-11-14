@@ -46,20 +46,16 @@ public class LibroService {
             editorial = respuestaEditorial.get();
         }
 
-        Libro libro = new Libro();
-        
-//        Autor autor = autorRepo.findById(idAutor).get();
-//        
-//        Libro libro = new Libro();
-//        
-//        Editorial edit = editRepo.findById(idEditorial).get();
-//        
-        libro.setIsbn(isbn);
-        libro.setTitulo(titulo);
-        libro.setAutor(autor);
-        libro.setEdit(editorial);
-        
-        libroRepo.save(libro);
+        if (respuestaEditorial.isPresent()) {
+            Libro libro = respuesta.get();
+
+            libro.setIsbn(isbn);
+            libro.setTitulo(titulo);
+            libro.setAutor(autor);
+            libro.setEdit(editorial);
+
+            libroRepo.save(libro);
+        }
     }
 
     public List<Libro> listarLibros() {
