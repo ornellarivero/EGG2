@@ -63,15 +63,15 @@ public class LibroControlador {
             modelo.put("error", ex.getMessage());
             return "libro_form.html";
         }
-        return "index.html";
+        return "redirect:/admin/dashboard";
     }
 
     @GetMapping("/lista")
     public String listar(ModelMap modelo) {
         List<Libro> libros = libroService.listarLibros();
-        
+
         modelo.addAttribute("libros", libros);
-      
+
         return "libro_list.html";
     }
 
@@ -100,7 +100,7 @@ public class LibroControlador {
 
             libroService.modificarLibro(isbn, titulo, autor, editorial);
 
-            return "redirect:../lista";
+            return "redirect:admin/dashboard";
 
         } catch (MiException ex) {
             List<Autor> autores = autorService.listarAutores();
@@ -110,9 +110,14 @@ public class LibroControlador {
 
             modelo.addAttribute("autores", autores);
             modelo.addAttribute("editoriales", editoriales);
-            
+
             return "libro_modificar.html";
         }
+    }
 
+    @GetMapping("/eliminar/{id}")
+    public String eliminar(@PathVariable(value = "id") Long id) {
+        libroService.eliminar(id);
+        return "redirect:../lista";
     }
 }

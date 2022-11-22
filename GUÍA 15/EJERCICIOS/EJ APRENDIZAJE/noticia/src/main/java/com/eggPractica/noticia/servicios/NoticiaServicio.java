@@ -16,20 +16,19 @@ public class NoticiaServicio {
     @Autowired
     private INoticiaRepositorio notiRepo;
 
-    public void crear(String titulo, String cuerpo, String foto) throws Exception {
-        validar(titulo, cuerpo, foto);
+    public void crear(String titulo, String cuerpo) throws Exception {
+        validar(titulo, cuerpo);
 
         Noticia noti = new Noticia();
 
         noti.setTitulo(titulo);
         noti.setCuerpo(cuerpo);
-        noti.setFoto(foto);
 
         notiRepo.save(noti);
     }
     
-    public void modificar(Long id, String titulo, String cuerpo, String foto) throws Exception {
-        validar(titulo, cuerpo, foto);
+    public void modificar(Long id, String titulo, String cuerpo) throws Exception {
+        validar(titulo, cuerpo);
         
 //        Optional<Noticia> respuestaLibro= notiRepo.findById(id);
 
@@ -37,7 +36,6 @@ public class NoticiaServicio {
 
         noti.setTitulo(titulo);
         noti.setCuerpo(cuerpo);
-        noti.setFoto(foto);
 
         notiRepo.save(noti);
     }
@@ -73,7 +71,7 @@ public class NoticiaServicio {
        notiRepo.deleteById(id);
     }
     
-    private void validar(String titulo, String cuerpo, String foto) throws Exception {
+    private void validar(String titulo, String cuerpo) throws Exception {
 
         if (titulo.isEmpty() || titulo == null) {
             throw new Exception("El Título no puede ser nulo");
@@ -81,10 +79,6 @@ public class NoticiaServicio {
 
         if (cuerpo.isEmpty() || cuerpo == null) {
             throw new Exception("El cuerpo no puede ser nula");
-        }
-
-        if (foto.isEmpty() || foto == null) {
-            throw new Exception("La foto no puede ser nulo");
         }
     }
 

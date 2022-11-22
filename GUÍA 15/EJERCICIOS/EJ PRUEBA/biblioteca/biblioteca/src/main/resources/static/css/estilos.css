@@ -1,0 +1,47 @@
+/*INDEX 2*/
+.bodyIndex2{
+    background-image: url(../img/fondoHome.jpg);
+}
+
+/*INDEX*/
+.bodyIndex{
+    background-image: url(../img/fondoHome2.jpg);
+}
+
+.buttonIndex{
+    color:white; 
+    text-decoration: none;
+}
+
+.h1Index{
+    color:black;
+}
+
+.imgIndex{
+    border-radius:2%;
+    border:1px solid black; 
+    outline: 2px solid black; 
+    margin: 10px; 
+    height: 10%
+}
+
+/*LIBRO_LIST*/
+.div1{
+    margin: 10px;
+}
+.hr{
+    color: white;
+}
+.h2{
+    color: #F49D1A;
+}
+.botonAccion{
+    text-decoration: none; 
+    width: 80%; 
+    margin: 5px
+}
+
+/*USUARIO_MODIFICAR*/
+.hr2{
+    width: 70%;
+}

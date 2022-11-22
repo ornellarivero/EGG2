@@ -18,20 +18,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/editorial")
 public class EditorialControlador {
-
+    
     @Autowired
     private EditorialService editService;
-
+    
     @GetMapping("/registrar")
     public String editorialForm() {
         return "editorial_form.html";
     }
-
+    
     @PostMapping("/registro")
     public String registro(@RequestParam String nombre, ModelMap modelo) {
         try {
             editService.crearEditorial(nombre);
-
+            
             modelo.put("exito", "La editorial se cargó con éxito.");
         } catch (MiException ex) {
             modelo.put("error", ex.getMessage());
@@ -39,10 +39,10 @@ public class EditorialControlador {
         }
         return "index.html";
     }
-
+    
     @GetMapping("/lista")
-    public String listar(ModelMap modelo){
-        List<Editorial>editoriales=editService.listarEditoriales();
+    public String listar(ModelMap modelo) {
+        List<Editorial> editoriales = editService.listarEditoriales();
         
         modelo.addAttribute("editoriales", editoriales);
         
@@ -50,13 +50,13 @@ public class EditorialControlador {
     }
     
     @GetMapping("/modificar/{id}")
-    public String modifiar(@PathVariable String id, ModelMap modelo){
+    public String modifiar(@PathVariable String id, ModelMap modelo) {
         modelo.put("editorial", editService.getOne(id));
         return "editorial_modificar.html";
     }
     
     @PostMapping("/modificar/{id}")
-    public String modificar(@PathVariable String id, String nombre, ModelMap modelo){
+    public String modificar(@PathVariable String id, String nombre, ModelMap modelo) {
         try {
             editService.modificarEditorial(nombre, id);
             
@@ -65,5 +65,11 @@ public class EditorialControlador {
             modelo.put("error", ex.getMessage());
             return "editorial_modificar.html";
         }
+    }
+    
+    @GetMapping("/eliminar/{id}")
+    public String eliminar(@PathVariable(value = "id") String id) {
+        editService.eliminar(id);
+        return "redirect:../lista";
     }
 }

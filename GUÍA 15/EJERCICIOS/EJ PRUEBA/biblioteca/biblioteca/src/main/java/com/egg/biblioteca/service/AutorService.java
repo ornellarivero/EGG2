@@ -56,6 +56,10 @@ public class AutorService {
         return autorRepo.getOne(id);
     }
 
+    public void eliminar(String id){
+        autorRepo.deleteById(id);
+    }
+    
     private void validar(String nombre) throws MiException {
         if (nombre == null || nombre.isEmpty()) {
             throw new MiException("El Nombre no puede ser nulo");

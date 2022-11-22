@@ -1,61 +1,55 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Carga de Libro</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    </head>
+<html xmlns:th="http://www.thimeleaf.org" xmlns:sec="http://www.thimeleaf.org/extras/spring-security" lang="es">
+    
+    <head th:replace="/fragments/head :: head"></head>
+    
     <body>
-        <h1><b>CARGA DE LIBRO</b></h1>
+        
+        <div align="center" style="margin-left: 10px">
+            <h1 style="color: #379237"><b>CARGA DE LIBRO</b></h1>
+            <hr style="width: 70%">
 
-        <form action="/libro/registro" method="POST" class="row g-3">
-            <div class="col-auto">
-                <div th:if="${error!=null}" class="card text-bg-danger mb-3" style="max-width: 18rem;">
-                    <!--                    <div class="card-header">Error</div>-->
-                    <div class="card-body">
-                        <h5 class="card-title">Error</h5>
-                        <p class="card-text" th:text="${error}"></p>
-                    </div>
+            <form style="width: 50%" action="/libro/registro" method="POST">
+
+                <div class="mb-3">
+                    <label class="mb-2"><b>ISBN:</b></label> 
+                    <input type="number" class="form-control" name="isbn" placeholder="ISBN">
                 </div>
-                <br>
-                <div th:if="${exito!=null}" class="card text-bg-success mb-3" style="max-width: 18rem;">
-                    <!--<div class="card-header">Header</div>-->
-                    <div class="card-body">
-                        <h5 class="card-title">Éxito!</h5>
-                        <p class="card-text" th:text="${exito}"></p>
-                    </div>
+
+                <div class="mb-3">
+                    <label class="mb-2"><b>Título:</b></label>
+                    <input type="text" class="form-control" name="titulo" id="inputPassword2" placeholder="Título del libro">
                 </div>
-                
-                <label class="mb-2">Cargar Libro</label> 
-                <input type="number" class="form-control" name="isbn" placeholder="ISBN">
-                <br>
-                <label for="staticEmail2" class="visually-hidden">Título del Libro</label>
-                <input type="text" class="form-control" name="titulo" id="inputPassword2" placeholder="Título del libro">
-                <br>
 
-                <select name="editorial">
-                    <option hidden>Seleccionar Editorial</option>
-                    <option th:each="editorial : ${editoriales}" th:value="${editorial.id}" th:text="${editorial.nombre}" />
-                </select>
-                <br>
-                <br>
+                <div class="mb-3">
+                    <select name="editorial">
+                        <option hidden>Seleccionar Editorial</option>
+                        <option th:each="editorial : ${editoriales}" th:value="${editorial.id}" th:text="${editorial.nombre}" />
+                    </select>
+                </div>
 
-                <select name="autor">
-                    <option hidden>Seleccionar autor</option>
-                    <option 
-                        th:each="autor : ${autores}" 
-                        th:value="${autor.id}" 
-                        th:text="${autor.nombre}"/>
-                </select>
+                <div class="mb-3">
+                    <select name="autor">
+                        <option hidden>Seleccionar autor</option>
+                        <option 
+                            th:each="autor : ${autores}" 
+                            th:value="${autor.id}" 
+                            th:text="${autor.nombre}"/>
+                    </select>
+                </div>
+
+                <button style="width: 50%" type="submit" class="btn btn-success">Cargar</button>
+            </form>
+            <hr style="width: 70%">
+            <a href="/admin/dashboard" type="button" class="btn btn-secondary">Volver</a>
+
+            <div align="center" th:if="${error!=null}" class="card text-bg-danger mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Error!</h5>
+                    <p th:text="${error}" class="card-text"></p>
+                </div>
             </div>
-
-            <div class="col-auto">
-                <button type="submit" class="btn btn-primary mb-3">Cargar</button>
-            </div>
-        </form>
-
-
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     </body>
 </html>

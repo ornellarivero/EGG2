@@ -10,13 +10,13 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+@Transactional
 @Service
 public class EditorialService {
 
     @Autowired
     EditorialRepositorio editRepo;
     
-    @Transactional
     public void crearEditorial(String nombre)throws MiException{
         
         validar(nombre);
@@ -37,7 +37,7 @@ public class EditorialService {
         return editoriales;
     }
     
-    @Transactional
+    
     public void modificarEditorial(String nombre, String id) throws MiException{
         
         validar(nombre);
@@ -55,6 +55,10 @@ public class EditorialService {
     
     public Editorial getOne(String id){
         return editRepo.getOne(id);
+    }
+    
+    public void eliminar(String id){
+        editRepo.deleteById(id);
     }
     
     private void validar(String nombre)throws MiException{

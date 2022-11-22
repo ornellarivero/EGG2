@@ -46,8 +46,7 @@ public class LibroService {
             editorial = respuestaEditorial.get();
         }
 
-        if (respuestaEditorial.isPresent()) {
-            Libro libro = respuesta.get();
+            Libro libro = new Libro();
 
             libro.setIsbn(isbn);
             libro.setTitulo(titulo);
@@ -55,7 +54,6 @@ public class LibroService {
             libro.setEdit(editorial);
 
             libroRepo.save(libro);
-        }
     }
 
     public List<Libro> listarLibros() {
@@ -99,6 +97,10 @@ public class LibroService {
 
     public Libro getOne(Long isbn) {
         return libroRepo.getOne(isbn);
+    }
+    
+    public void eliminar(Long id){
+        libroRepo.deleteById(id);
     }
 
     private void validar(Long isbn, String titulo, String idEditorial, String idAutor) throws MiException {
