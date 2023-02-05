@@ -1,2 +1,0 @@
-11) Usar Bootstrap para mostrar una tabla de productos así: ("img ejemplo")
-12) Una vez que tenemos esa tabla vamos a sumarle una columna más que se vea así: ("img ejemplo2"). Para esto investigar la clase button de Bootsrap para las etiquetas <a> e investigar los colores de Bootstrap y como sumarlos.
