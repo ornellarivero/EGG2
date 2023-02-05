@@ -1,1 +1,0 @@
-ej6_par_impar.Ej6_Par_Impar
