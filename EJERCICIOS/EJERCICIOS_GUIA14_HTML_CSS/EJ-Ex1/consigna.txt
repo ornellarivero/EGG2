@@ -1,0 +1,3 @@
+Para este apartado vamos a crear 2 listas: 
+a. Lista con viñetas con aspectos personalizados a elección. 
+b. Lista vertical con links a paginas a elección.

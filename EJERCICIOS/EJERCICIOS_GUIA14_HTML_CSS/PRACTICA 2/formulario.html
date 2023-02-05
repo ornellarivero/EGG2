@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+</head>
+
+<body>
+    <section>
+        <div>
+            <form action="mickaelabossio@hotmail.com" method="post" class="form1" enctype="multipart/form-data">
+                <div>
+                    <label for="nombre"></label>
+                    <input name="nombre" type="text" placeholder="Nombre y apellido" required>
+                </div>
+                <div>
+                    <label for="mail"></label>
+                    <input name="mail" type="mail" placeholder="pepo@honguito.com" required>
+                </div>
+                <div>
+                    <label for="number"></label>
+                    <input name="number" type="number" placeholder="1234567899" required>
+                </div>
+                <div>
+                    <label for="contrasenia"></label>
+                    <input name="contrasenia" type="password" placeholder="tu password" required>
+                </div>
+                <div>
+                    <label for="femenino">Femenino</label>
+                    <input name="femenino" type="radio" value="f">
+                    <label for="masculino">Masculino</label>
+                    <input name="masculino" type="radio" value="m">
+                </div>
+                <div>
+                    <label for="femenino">Femenino</label>
+                    <input name="femenino" type="checkbox" value="f">
+                    <label for="masculino">Masculino</label>
+                    <input name="masculino" type="checkbox" value="m">
+                </div>
+                <div>
+                    <label for="pais">País de origen</label>
+                    <select name="pais" id="">
+                        <option value="arg">ARG</option>
+                        <option value="brs">BRS</option>
+                        <option value="chi">CHI</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="date"></label>
+                    <input name="date" type="date">
+                </div>
+                <div>
+                    <label for="image"></label>
+                    <input name="image" type="file">
+                </div>
+                <button type="submit">Enviar Info</button>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
